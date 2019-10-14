@@ -4,6 +4,8 @@ const cors = require('cors'); //require cors (Acts as a middleware for connectin
 
 const bodyParser = require('body-parser'); //require bodyparser (parse req.body)
 
+const db = require('./db');
+
 const app = express(); //creating an express app
 
 const corsMiddleware = cors(); //creating a cors middleware
