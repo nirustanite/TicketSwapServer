@@ -4,7 +4,10 @@ const cors = require('cors'); //require cors (Acts as a middleware for connectin
 
 const bodyParser = require('body-parser'); //require bodyparser (parse req.body)
 
-const db = require('./db');
+const User = require('./User/model')
+const Events = require('./Events/model')
+const Tickets = require('./Tickets/model')
+const Comments = require('./Comments/model')
 
 const app = express(); //creating an express app
 
