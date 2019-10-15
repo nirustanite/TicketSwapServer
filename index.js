@@ -4,11 +4,13 @@ const cors = require('cors'); //require cors (Acts as a middleware for connectin
 
 const bodyParser = require('body-parser'); //require bodyparser (parse req.body)
 
+const fileUpload = require('express-fileupload'); //express file upload middleware
+
 const userRouter = require('./User/router'); // require userRouter
 const authRouter = require('./auth/router'); // require authRouter
 const eventsRouter = require('./Events/router'); // require eventrouter
-const Tickets = require('./Tickets/model')
-const Comments = require('./Comments/model')
+const ticketsRouter = require('./Tickets/router'); //require ticketrouter
+const commentsRouter = require('./Comments/router'); //require commentsRouter
 
 const app = express(); //creating an express app
 
@@ -21,9 +23,18 @@ const port = 4000; //creating a port in which the app runs
 app.use(corsMiddleware); // making express app to use cors middleware in order to coonect with client
 
 app.use(parserMiddleware) //making express app to use parse middleware
+app.use(bodyParser.urlencoded({extended:true})); //body parser for multipart/form data
 
-app.use(userRouter);
-app.use(authRouter);
-app.use(eventsRouter);
+//middelware for fileupload
+app.use(fileUpload({
+    createParentPath: true
+}))
+
+app.use(userRouter); //router for user model
+app.use(authRouter); //router for login
+app.use(eventsRouter); //router for events
+app.use(ticketsRouter); //router for tickets
+app.use(commentsRouter); //router for comments
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`)) // making app to start on port 4000
