@@ -12,10 +12,6 @@ const Events = db.define('events', {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    picture:{
-        type:Sequelize.STRING,
-        allowNull: false
-    },
     startDate:{
         type:Sequelize.DATE,
         allowNull: false

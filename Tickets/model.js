@@ -4,10 +4,6 @@ const Comments = require('../Comments/model'); // require Comments model
 
 //creating Tickets model
 const Tickets = db.define('tickets',{
-    picture:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     price:{
         type: Sequelize.FLOAT,
         allowNull: false
@@ -20,6 +16,14 @@ const Tickets = db.define('tickets',{
         type:Sequelize.FLOAT,
         allowNull: false
     },
+    status:{
+        type:Sequelize.STRING,
+        allowNull: false
+    },
+    quantity:{
+        type:Sequelize.INTEGER,
+        allowNull: false
+    }
 });
 
 Comments.belongsTo(Tickets);

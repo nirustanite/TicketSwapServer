@@ -7,10 +7,6 @@ const Comments = db.define('comments',{
         type: Sequelize.TEXT,
         allowNull: false
     },
-    authorname:{
-        type:Sequelize.STRING,
-        allowNull:false
-    }
 },{
     timestamps: false
 });
