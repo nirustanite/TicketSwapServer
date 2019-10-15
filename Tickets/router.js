@@ -322,16 +322,15 @@ router.get('/event/:id/ticket/:ticketId/risk', event, async(req,res) => {
        })
 
 
-       const room = await Tickets.findByPk(req.params.ticketId)
+       const room = await Tickets.findAll();
        const data = JSON.stringify(room)
        stream.send(data)
 })
 
 app.get('/stream', async (request, response) => {
     console.log('got a request on stream')
-    const room = await Chatroom.findAll()
-    const data = JSON.stringify(room)
-    //console.log('messages in this room are',data)
+    const room = await Tickets.findAll();
+    const data = JSON.stringify(room);
 
     stream.updateInit(data)
     stream.init(request,response)
