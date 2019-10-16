@@ -364,7 +364,7 @@ router.get('/event/:id/ticket/:ticketId/risk', event, async(req,res) => {
        stream.send(data)
 })
 
-app.get('/stream', async (request, response) => {
+router.get('/stream', async (request, response) => {
     console.log('got a request on stream')
     const room = await Tickets.findAll();
     const data = JSON.stringify(room);
