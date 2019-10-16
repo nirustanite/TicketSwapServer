@@ -15,20 +15,15 @@ router.get('/event', (req,res,next) => {
     const limit = req.query.limit || 9;
     const offset = req.query.offset || 0;
 
-    Events.findAll({
-        limit,offset,
-        where: {
+    Events.findAndCountAll(
+        {limit, offset,
+        where:{
             startDate:{
-                [Op.gt]:new Date()
+                [Op.gt]: new Date()
             }
-        }
-    })
-    .then(events => {
-        if(events){
-            return res.send(events);
-        }
-    })
-    .catch(err => next(err))
+        }})
+          .then(result => res.send({events: result.rows, total:result.count }))
+          .catch(error => next(error))
 });
 
 //get a event by eventid
