@@ -166,14 +166,21 @@ router.get('/event/:id/ticket/:ticketId/risk', event, async(req,res) => {
                                })
                                .then(ticket =>{
                                  console.log(parseFloat(ticket.risk.toFixed(2)))
-                                
+                                 res.send({
+                                     message: "updated"
+                                 })
                                })
                            }
                            else{
                             ticket.update({
                                 risk: 0.95
                               })
-                              .then(ticket => console.log(parseFloat(ticket.risk.toFixed(2)))) 
+                              .then(ticket => {
+                                console.log(parseFloat(ticket.risk.toFixed(2)))
+                                res.send({
+                                    message: "updated"
+                                })
+                              }) 
                            }
                        })
                    }
@@ -220,14 +227,24 @@ router.get('/event/:id/ticket/:ticketId/risk', event, async(req,res) => {
                           ticket.update({
                               risk: ParseFloat(riskyupdatedvalue.toFixed(2))
                           })
-                          .then(ticket => console.log("risk updated",ticket.risk))
+                          .then(ticket => {
+                            console.log("risk updated",ticket.risk)
+                            res.send({
+                                message: "updated"
+                            })
+                          })
                       }
                       else{
                           if(riskyupdatedvalue > 0.95){
                             ticket.update({
                                risk: 0.95
                             })
-                            .then(ticket => console.log("ticket risk",ticket.risk))
+                            .then(ticket =>{
+                                console.log("ticket risk",ticket.risk)
+                                res.send({
+                                    message: "updated"
+                                })
+                            })
                           }
                       }
                    }
@@ -245,14 +262,24 @@ router.get('/event/:id/ticket/:ticketId/risk', event, async(req,res) => {
                             ticket.update({
                                 risk:ParseFloat(riskyupdatedvalue.toFixed(2))
                             })
-                            .then(ticket => console.log("risk updated", ticket.risk))
+                            .then(ticket => {
+                                console.log("risk updated", ticket.risk)
+                                res.send({
+                                    message: "updated"
+                                })
+                            })
                         }
                         else{
                             if(riskyupdatedvalue > 0.95){
                                 ticket.update({
                                     risk: 0.95
                                 })
-                                .then(ticket => console.log("risk updated", ticket.risk))
+                                .then(ticket => {
+                                    console.log("risk updated", ticket.risk)
+                                    res.send({
+                                        message:"updated"
+                                    })
+                                })
                             }
                         }
                     }
@@ -288,7 +315,12 @@ router.get('/event/:id/ticket/:ticketId/risk', event, async(req,res) => {
                    ticket.update({
                        risk:updatedrisk
                    })
-                   .then(ticket => console.log("risk updated", ticket.risk))
+                   .then(ticket => {
+                     console.log("risk updated", ticket.risk)
+                     res.send({
+                         message:"updated"
+                     })
+                   })
                }
            })
 
@@ -315,7 +347,12 @@ router.get('/event/:id/ticket/:ticketId/risk', event, async(req,res) => {
                               ticket.update({
                                   risk:updatedrisk
                               })
-                              .then(ticket => console.log("updated risk", ticket.risk))
+                              .then(ticket => {
+                                console.log("updated risk", ticket.risk)
+                                res.send({
+                                    message:"updated"
+                                })
+                              })
                           }
                       }
                   })
