@@ -34,6 +34,7 @@ router.post('/login', (req,res,next) => {
               const data = {
                   jwt: toJWT({userId: user.id}),
                   firstname:user.firstname,
+                  userId:user.id,
                   message:"Success"
               }
               console.log("data after login", data)
