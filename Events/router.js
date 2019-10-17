@@ -52,7 +52,7 @@ router.post('/event',auth, async(req,res,next) => {
                 avatar.name = 'logo.png'
                 avatar.mv(`/${path}/` + avatar.name)
                 res.status(200).send({
-                   message:"Success"
+                   event
                 })
             })
             .catch(err => next(err))
