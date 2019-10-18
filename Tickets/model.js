@@ -27,6 +27,6 @@ const Tickets = db.define('tickets',{
 });
 
 Comments.belongsTo(Tickets);
-Tickets.hasMany(Comments);
+
 
 module.exports = Tickets;  // exporting tickets model
