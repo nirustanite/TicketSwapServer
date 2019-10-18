@@ -6,7 +6,7 @@ const Comments = db.define('comments',{
     comment:{
         type: Sequelize.TEXT,
         allowNull: false
-    },
+    }
 },{
     timestamps: false
 });

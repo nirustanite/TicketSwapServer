@@ -5,16 +5,18 @@ const auth = require('../auth/middleware'); //require auth middleware
 const router = new Router() //Instantiate a router
 
 //creating a comment
-router.post('/ticket/:id/comment',auth,(req,res) => {
+router.post('/ticket/:id/comment',auth,async(req,res) => {
     const loggedInUser = req.data.userId
     const id = req.params.id
+    console.log(id)
     if(loggedInUser){
         const {comment} = req.body
         if(comment){
             Comments.create({
                 comment,
+                ticketId: id,
                 userId: loggedInUser,
-                ticketId: id
+                
             })
             .then(comment => {
                 res.status(200).send({
