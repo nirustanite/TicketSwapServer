@@ -4,7 +4,7 @@ const db = require('../db'); // requiring db connection
 //creating a comments model
 const Comments = db.define('comments',{
     comment:{
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         allowNull: false
     }
 },{
