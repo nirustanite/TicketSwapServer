@@ -6,7 +6,6 @@ const router = new Router(); //Instantiate a router
 
 // creating a user endpoint (post request)
 router.post('/user', async (req,res,next) => {
-    console.log('What is request.body',req.body);
     const {firstname,lastname,email,password} = req.body;
 
     //if every data is present password is hashed
@@ -17,8 +16,6 @@ router.post('/user', async (req,res,next) => {
             email,
             password: bcrypt.hashSync(password,10)
         };
-
-        console.log("User after password hashing", user);
 
         // check if email is already used
         const emailInUse = await User.findOne({

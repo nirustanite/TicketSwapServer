@@ -6,8 +6,10 @@ const Sequelize = require('sequelize'); //require sequelize
 const mkdir = require('make-dir') //require make-dir for creating a directory
 const fs = require('fs'); //require fs to search if the file exists
 const Op = Sequelize.Op; //to compare dates
+const path = require('path');
 const event = require('./middleware'); // require an event middleware
-const basePath = "/home/nirupamaa/Desktop/codaisseur/week-8/ticketswapproject/images"; //basepath for storing images
+const dirpath = require('../config');
+const basePath = path.join(__dirname, dirpath ); //basepath for storing images
 
 
 //get all the events along with pagination

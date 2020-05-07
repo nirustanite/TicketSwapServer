@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize'); // require sequelize inorder to make connection with database
 
-const connectionString = 'postgres://postgres:secret@localhost:5432/postgres' // connection string to connect to database
+const connectionString = 'postgres://postgres:postgres123@localhost:5432/postgres' // connection string to connect to database
 
 const db = new Sequelize(connectionString) // connecting to database
 

@@ -7,8 +7,7 @@ const router = new Router(); //Instantiate a router
 
 //create a login endpoint
 
-router.post('/login', (req,res,next) => {
-    console.log("What is request", req.body);
+router.post('/login', (req,res) => {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -37,7 +36,6 @@ router.post('/login', (req,res,next) => {
                   userId:user.id,
                   message:"Success"
               }
-              console.log("data after login", data)
               res.send(data)
           }
           else{
