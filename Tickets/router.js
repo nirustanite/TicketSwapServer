@@ -5,7 +5,7 @@ let router = new Router();  //Instantiate a router
 let fs = require('fs'); //require fs to search if the file exists
 let event = require('../Events/middleware'); // require an event middleware
 const path = require('path');
-const dirpath = require('../config');
+const { dirpath } = require('../config');
 let basePath = path.join(__dirname, dirpath );; //basepath for storing images
 
 //creating a ticket

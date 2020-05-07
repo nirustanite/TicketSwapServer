@@ -8,7 +8,7 @@ const fs = require('fs'); //require fs to search if the file exists
 const Op = Sequelize.Op; //to compare dates
 const path = require('path');
 const event = require('./middleware'); // require an event middleware
-const dirpath = require('../config');
+const { dirpath } = require('../config');
 const basePath = path.join(__dirname, dirpath ); //basepath for storing images
 
 

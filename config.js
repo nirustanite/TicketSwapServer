@@ -1,3 +1,6 @@
 const dirpath =  "../images";
-
-module.exports = dirpath;
+const connectionString = 'postgres://postgres:YOURPASSWORD@localhost:5432/postgres'
+module.exports = {
+    dirpath,
+    connectionString
+};
