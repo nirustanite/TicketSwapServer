@@ -10,8 +10,8 @@ Postgress database is used.
 ## Create a docker Image 
   `docker run -p 5432:5432 --name events -e POSTGRES_PASSWORD=<password> -d postgres`
   
-1. Provide your password for postgrs database in the docker image.
-2. Provide the postgres password  for the connection string in the congig file.
+1. Provide your password for postgres database in the docker image.
+2. Provide the postgres password for the connection string in the congig file.
 
 ### Authentication 
 1. JWT Token is used for Authentication.
